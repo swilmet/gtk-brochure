@@ -58,7 +58,37 @@ Over time GTK+ has been built up to be based on other libraries, also developed 
 \vspace{1cm}
 \includegraphics[width=\textwidth]{images/architecture.pdf}
 
+\pagebreak
 \section{GLib -- the Core Library}
+
+Firstly, GLib provides common data structures:
+\begin{itemize}
+  \item Single and doubly linked lists.
+  \item Hash tables.
+  \item Balanced binary trees.
+  \item N-ary trees: trees of data with any number of branches.
+  \item Strings with text buffers which grow automatically as text is added.
+  \item Arrays of arbitrary elements which grow automatically as elements are added.
+  \item \texttt{GVariant}, a generic data type that stores a value along with information about the type of that value.
+  \item And a few other data structures.
+\end{itemize}
+
+\bigskip
+GLib contains also lots of utilities:
+\begin{itemize}
+  \item String and Unicode manipulation.
+  \item Date and time functions.
+  \item A command-line option parser.
+  \item Perl-compatible regular expressions.
+  \item An XML parser.
+  \item A unit-test framework.
+  \item And many other utilities.
+\end{itemize}
+
+\bigskip
+Last, but not least, GLib provides some core event-driven programming features, with a \textit{main event loop}, support for threads and asynchronous communication between threads. An event loop listens some sources of events, that can come from file descriptors (plain files, pipes or sockets), timeouts, or other custom sources. A priority is associated with each source of events. When an event arrives, the event loop dispatches it to the application. The event can then be taken into account, either in the same thread or another thread.
+
+Event-driven programming is not only useful for graphical user interfaces (with user events such as key presses and mouse clicks), but also for daemons that respond to hardware changes (a USB stick inserted, a second monitor connected, a printer low on paper), or software that listen to network connections or messages from other processes, and so on.
 
 \section{GObject -- an Object System}
 
