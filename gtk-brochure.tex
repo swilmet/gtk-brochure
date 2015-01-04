@@ -107,6 +107,12 @@ Most modern programming languages come with their own native object systems and 
 
 \section{GIO -- Input/Output on Steroids}
 
+GIO is striving to provide a modern, easy-to-use Virtual File System (VFS) API that sits at the right level in the library stack, as well as other generally useful APIs for desktop applications (such as networking and D-Bus support). The goal is to provide an API that is so good that developers prefer it over raw POSIX calls. Among other things that means using GObject. It also means not cloning the POSIX API, but providing higher-level, document-centric interfaces.
+
+The abstract file system model of GIO consists of a number of interfaces and base classes for I/O and files. Then there is a number of stream classes, similar to the input and output stream hierarchies that can be found in frameworks like Java. There is a framework for storing and retrieving application settings. There is support for network programming, including connectivity monitoring, name resolution, lowlevel socket APIs and highlevel client and server helper classes. There is support for connecting to the D-Bus inter-process communication system: sending and receiving messages, owning and watching bus names, and making objects available on the bus. Beyond these, GIO provides: file monitoring; utility classes to implement asynchronous and/or cancellable operations; an easy-to-use API to launch and interact with child processes; and more.
+
+In addition to the interfaces, GIO provides implementations for the local case. Implementations for various network file systems are provided by the GVFS package as loadable modules. Another design choice is to move backends out-of-process, which minimizes the dependency bloat and makes the whole system more robust. The backends are not included in GIO, but in the separate GVFS package. The GVFS package also contains a daemon which spawn further mount daemons for each individual connection.
+
 \section{The GTK+ Widget Toolkit}
 
 \end{document}
