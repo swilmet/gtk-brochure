@@ -30,7 +30,7 @@ GTK+ is written in C but has been designed from the ground up to support a wide 
 
 GTK+ is free software and part of the GNU Project. The licensing terms for GTK+, the GNU LGPL, allow it to be used by all developers, including those developing proprietary software, without any license fees or royalties.
 
-GTK+ has been created in 1996 for the GIMP --- the GNU Image Manipulation Program --- but has quickly become a general-purpose library used by a large number of applications including the GNU project's GNOME desktop.
+GTK+ has been created in 1996 for the GIMP --- the GNU Image Manipulation Program --- but quickly evolved into a general-purpose library used by a large number of applications including the GNU project's GNOME desktop.
 
 \begin{center}
   \includegraphics[width=3cm]{images/gtk-logo.pdf}
@@ -48,7 +48,7 @@ Over time GTK+ has been built up to be based on other libraries, also developed 
 
   \item \textbf{Pango}, a library for layout and rendering of text with an emphasis on internationalization. It forms the core of text and font handling for GTK+.
 
-  \item \textbf{Cairo}, a library for 2D graphics with support for multiple output devices (including the X Window System, Win32) while producing a consistent output on all media while taking advantage of display hardware acceleration when available.
+  \item \textbf{Cairo}, a library for 2D graphics with support for multiple output devices (including the X Window System, Win32 and Quartz) while producing a consistent output on all media while taking advantage of display hardware acceleration when available.
 
   \item \textbf{ATK}, a library for a set of interfaces providing accessibility. By supporting the ATK interfaces, an application or toolkit can be used with tools such as screen readers, magnifiers, and alternative input devices.
 
@@ -74,7 +74,7 @@ Firstly, GLib provides common data structures:
 \end{itemize}
 
 \bigskip
-GLib contains also lots of utilities:
+GLib also contains loads of utilities:
 \begin{itemize}
   \item String and Unicode manipulation.
   \item Date and time functions.
@@ -92,7 +92,7 @@ Event-driven programming is not only useful for graphical user interfaces (with 
 
 \section{GObject -- an Object System}
 
-Most modern programming languages come with their own native object systems and additional fundamental algorithmic language constructs. Just as GLib serves as an implementation of such fundamental types and algorithms (linked lists, hash tables and so forth), GObject provides the required implementations of a flexible, extensible, and intentionally easy to map (into other languages) object-oriented framework for C. The substantial elements that are provided can be summarized as:
+Most modern programming languages come with their own native object systems and additional fundamental algorithmic language constructs. Just as GLib serves as an implementation of such fundamental types and algorithms (linked lists, hash tables and so forth), GObject provides an implementation of a flexible, extensible, and intentionally easy to map (into other languages) object-oriented framework for C. The substantial elements that are provided can be summarized as:
 \begin{itemize}
   \item A generic type system to register arbitrary single-inherited flat and deep derived types as well as interfaces for structured types. It takes care of creation, initialization and memory management of the assorted object and class structures, maintains parent/child relationships and deals with dynamic implementations of such types. That is, their type specific implementations are relocatable/unloadable during runtime.
 
@@ -107,7 +107,7 @@ Most modern programming languages come with their own native object systems and 
 
 \section{GIO -- Input/Output on Steroids}
 
-GIO is striving to provide a modern, easy-to-use Virtual File System (VFS) API that sits at the right level in the library stack, as well as other generally useful APIs for desktop applications (such as networking and D-Bus support). The goal is to provide an API that is so good that developers prefer it over raw POSIX calls. Among other things that means using GObject. It also means not cloning the POSIX API, but providing higher-level, document-centric interfaces.
+GIO is striving to provide a modern, easy-to-use Virtual File System (VFS) API that sits at the right level in the library stack. GIO also contains other generally useful APIs for desktop applications (such as networking and D-Bus support). It was created to provide an API that is so good that developers prefer it over raw POSIX calls. Among other things that means using GObject. It also means not cloning the POSIX API, but providing higher-level, document-centric interfaces.
 
 The abstract file system model of GIO consists of a number of interfaces and base classes for I/O and files. Then there is a number of stream classes, similar to the input and output stream hierarchies that can be found in frameworks like Java. There is a framework for storing and retrieving application settings. There is support for network programming, including connectivity monitoring, name resolution, lowlevel socket APIs and highlevel client and server helper classes. There is support for connecting to the D-Bus inter-process communication system: sending and receiving messages, owning and watching bus names, and making objects available on the bus. Beyond these, GIO provides: file monitoring; utility classes to implement asynchronous and/or cancellable operations; an easy-to-use API to launch and interact with child processes; and more.
 
@@ -119,14 +119,22 @@ On top of GLib/GObject/GIO sits GTK+, a library containing a wide range of \text
 
 Although widgets can be created, configured and assembled programmatically, the Glade interface builder can be used to create the user interface graphically. The Glade application creates an XML file that can be loaded with GTK+.
 
-GTK+ provides a flexible theming system with a CSS-like syntax. The default theme is Adwaita, used by the GNOME desktop, but other themes can be created so an application can be well integrated with other desktop environments or mobile devices.
+Among other things, GTK+ provides a flexible theming system with a CSS-like syntax, as well as an interactive inspector.
 
-\section{About Versions}
+\section{Release Schedule and Versioning Scheme}
 
-There are new GLib, GObject, GIO, GTK+ and GNOME stable releases every six months, around March and September. A version number has the form X.Y.Z, where ``Y'' is even for stable versions and is odd for unstable versions. A new minor stable version (e.g. 3.14.0 $\rightarrow$ 3.14.1) doesn't add new features, only translation updates, bug fixes and performance improvements. For a library, a new major version number (``X'' in X.Y.Z) generally means there has been an API break, but fortunately previous major versions are parallel-installable with the latest version.
+Every six months there are new GLib, GObject, GIO, GTK+ and GNOME stable releases, around March and September. A version number has the form X.Y.Z, where ``Y'' is even for stable versions and is odd for unstable versions. A new minor stable version (e.g. 3.14.0 $\rightarrow$ 3.14.1) doesn't add new features, only translation updates, bug fixes and performance improvements. For a library, a new major version number (``X'' in X.Y.Z) generally means there has been an API break. To address this, previous major versions are parallel-installable with the latest version.
 
 It's recommended to use the latest versions for newly-written code.
 
-More information: \url{http://www.gtk.org/}
+% \hrulefill
+%
+% \begin{center}
+% More information: \url{http://www.gtk.org/}
+% \end{center}
+
+\section{More Information}
+
+\url{http://www.gtk.org/}
 
 \end{document}
