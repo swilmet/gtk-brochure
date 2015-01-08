@@ -115,4 +115,18 @@ In addition to the interfaces, GIO provides implementations for the local case. 
 
 \section{The GTK+ Widget Toolkit}
 
+On top of GLib/GObject/GIO sits GTK+, a library containing a wide range of \textit{widgets}. A widget is a basic component of a graphical user interface, for instance a button, some text, a menu, etc. A \textit{container} is a special widget that can contain other widgets. Another special type of widget is a \textit{toplevel} widget, i.e. a window. All these widgets are (indirect) subclasses of the \texttt{GObject} base class.
+
+Although widgets can be created, configured and assembled programmatically, the Glade interface builder can be used to create the user interface graphically. The Glade application creates an XML file that can be loaded with GTK+.
+
+GTK+ provides a flexible theming system with a CSS-like syntax. The default theme is Adwaita, used by the GNOME desktop, but other themes can be created so an application can be well integrated with other desktop environments or mobile devices.
+
+\section{About Versions}
+
+There are new GLib, GObject, GIO, GTK+ and GNOME stable releases every six months, around March and September. A version number has the form X.Y.Z, where ``Y'' is even for stable versions and is odd for unstable versions. A new minor stable version (e.g. 3.14.0 $\rightarrow$ 3.14.1) doesn't add new features, only translation updates, bug fixes and performance improvements. For a library, a new major version number (``X'' in X.Y.Z) generally means there has been an API break, but fortunately previous major versions are parallel-installable with the latest version.
+
+It's recommended to use the latest versions for newly-written code.
+
+More information: \url{http://www.gtk.org/}
+
 \end{document}
