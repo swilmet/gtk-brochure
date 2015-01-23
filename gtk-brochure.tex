@@ -88,6 +88,11 @@ GLib also contains loads of utilities:
 \bigskip
 Last, but not least, GLib provides some core event-driven programming features, with a \textit{main event loop}, support for threads and asynchronous communication between threads. An event loop listens some sources of events, that can come from file descriptors (plain files, pipes or sockets), timeouts, or other custom sources. A priority is associated with each source of events. When an event arrives, the event loop dispatches it to the application. The event can then be taken into account, either in the same thread or another thread.
 
+\begin{center}
+  \includegraphics[width=6cm]{images/event-loop.pdf}\\
+  GLib event loop state diagram
+\end{center}
+
 \section{GObject -- an Object System}
 
 Most modern programming languages come with their own native object systems and additional fundamental algorithmic language constructs. Just as GLib serves as an implementation of such fundamental types and algorithms (linked lists, hash tables and so forth), GObject provides an implementation of a flexible, extensible, and intentionally easy to map (into other languages) object-oriented framework for C.
@@ -104,6 +109,7 @@ The abstract file system model of GIO consists of a number of interfaces and bas
 
 In addition to the interfaces, GIO provides implementations for the local case. Implementations for various network file systems are provided by the GVFS package as loadable modules. Another design choice is to move backends out-of-process, which minimizes the dependency bloat and makes the whole system more robust. The backends are not included in GIO, but in the separate GVFS package. The GVFS package also contains a daemon which spawn further mount daemons for each individual connection.
 
+\pagebreak
 \section{The GTK+ Widget Toolkit}
 
 On top of GLib/GObject/GIO sits GTK+, a library containing a wide range of \textit{widgets}. A widget is a basic component of a graphical user interface, for instance a button, some text, a menu, etc. A \textit{container} is a special widget that can contain other widgets. All these widgets are (indirect) subclasses of the \texttt{GObject} base class.
