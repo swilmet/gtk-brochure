@@ -88,13 +88,13 @@ GLib also contains loads of utilities:
 \bigskip
 Last, but not least, GLib provides some core event-driven programming features, with a \textit{main event loop}, support for threads and asynchronous communication between threads. An event loop listens some sources of events, that can come from file descriptors (plain files, pipes or sockets), timeouts, or other custom sources. A priority is associated with each source of events. When an event arrives, the event loop dispatches it to the application. The event can then be taken into account, either in the same thread or another thread.
 
-Event-driven programming is not only useful for graphical user interfaces (with user events such as key presses and mouse clicks), but also for daemons that respond to hardware changes (a USB stick inserted, a second monitor connected, a printer low on paper), or software that listen to network connections or messages from other processes, and so on.
-
 \section{GObject -- an Object System}
 
 Most modern programming languages come with their own native object systems and additional fundamental algorithmic language constructs. Just as GLib serves as an implementation of such fundamental types and algorithms (linked lists, hash tables and so forth), GObject provides an implementation of a flexible, extensible, and intentionally easy to map (into other languages) object-oriented framework for C.
 
 All common object-oriented concepts are present: inheritance, interfaces, virtual/overridable methods, abstract classes, constructors, destructors, and so on. Memory management is handled by reference counting: when the reference count decreases to 0 the object is destroyed. GObject also provides a powerful \textit{signal system}: you can create your own signals and connect callback functions to it. It is a great way to decouple classes since the object sending the signal doesn't know who receive it. Another peculiarity of GObject is a \textit{property}, which is basically an object attribute surmounted by a \texttt{notify} signal that is sent when its value changes.
+
+Alongside a GLib event loop, the GObject signal system forms a foundation for event-driven programming. The event-driven paradigm is not only useful for graphical user interfaces (with user events such as key presses and mouse clicks), but also for daemons that respond to hardware changes (a USB stick inserted, a second monitor connected, a printer low on paper), or software that listen to network connections or messages from other processes, among other examples.
 
 \section{GIO -- Input/Output on Steroids}
 
