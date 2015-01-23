@@ -92,18 +92,9 @@ Event-driven programming is not only useful for graphical user interfaces (with 
 
 \section{GObject -- an Object System}
 
-Most modern programming languages come with their own native object systems and additional fundamental algorithmic language constructs. Just as GLib serves as an implementation of such fundamental types and algorithms (linked lists, hash tables and so forth), GObject provides an implementation of a flexible, extensible, and intentionally easy to map (into other languages) object-oriented framework for C. The substantial elements that are provided can be summarized as:
-\begin{itemize}
-  \item A generic type system to register arbitrary single-inherited flat and deep derived types as well as interfaces for structured types. It takes care of creation, initialization and memory management of the assorted object and class structures, maintains parent/child relationships and deals with dynamic implementations of such types. That is, their type specific implementations are relocatable/unloadable during runtime.
+Most modern programming languages come with their own native object systems and additional fundamental algorithmic language constructs. Just as GLib serves as an implementation of such fundamental types and algorithms (linked lists, hash tables and so forth), GObject provides an implementation of a flexible, extensible, and intentionally easy to map (into other languages) object-oriented framework for C.
 
-  \item A collection of fundamental type implementations, such as integers, doubles, enums and structured types, to name a few.
-
-  \item A fundamental type implementation to base object hierarchies upon -- the \texttt{GObject} base class.
-
-  \item A signal system that allows very flexible user customization of virtual/overridable object methods and can serve as a powerful notification mechanism. For example a GTK+ widget displaying text can send a signal when some text is inserted, so the application can connect to the signal by attaching a callback function that is called when the signal is emitted.
-
-  \item An extensible parameter/value system, supporting all the provided fundamental types that can be used to generically handle object properties or otherwise parameterized types. A \textit{property} is like an object attribute, but a signal is emitted when its value changes. For instance a check button in GTK+ has the \texttt{active} boolean property that tells whether the check button is checked or not. An application can attach a callback to the \texttt{notify} signal to be notified when the state of the check button is modified.
-\end{itemize}
+All common object-oriented concepts are present: inheritance, interfaces, virtual/overridable methods, abstract classes, constructors, destructors, and so on. Memory management is handled by reference counting: when the reference count decreases to 0 the object is destroyed. GObject also provides a powerful \textit{signal system}: you can create your own signals and connect callback functions to it. It is a great way to decouple classes since the object sending the signal doesn't know who receive it. Another peculiarity of GObject is a \textit{property}, which is basically an object attribute surmounted by a \texttt{notify} signal that is sent when its value changes.
 
 \section{GIO -- Input/Output on Steroids}
 
