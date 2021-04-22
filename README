@@ -6,3 +6,8 @@ reference.
 A PDF is available at:
 
     https://people.gnome.org/~swilmet/gtk-brochure.pdf
+
+To compile the brochure:
+```
+$ latexmk -pdf main.tex
+```
