@@ -8,14 +8,14 @@
 \usepackage{hyperref}
 \hypersetup{
   pdfauthor   = {Sébastien Wilmet},
-  pdftitle    = {GTK+ Brochure},
+  pdftitle    = {GTK Brochure},
   pdfcreator  = {Texlive},
   pdfproducer = {Texlive},
   colorlinks  = false,
   pdfborder   = 0 0 0
 }
 
-\title{The GLib/GTK+ Development Platform}
+\title{The GLib/GTK Development Platform}
 \date{}
 \author{}
 
@@ -24,13 +24,13 @@
 \maketitle
 \thispagestyle{empty}
 
-GTK+ is a multi-platform toolkit for creating graphical user interfaces. Offering a complete set of widgets, GTK+ is suitable for projects ranging from small one-off tools to complete application suites.
+GTK is a multi-platform toolkit for creating graphical user interfaces. Offering a complete set of widgets, GTK is suitable for projects ranging from small one-off tools to complete application suites.
 
-GTK+ is written in C but has been designed from the ground up to support a wide range of languages, not only C/C++. Using GTK+ from languages such as Python and JavaScript (especially in combination with the Glade GUI builder) provides an effective method of application development.
+GTK is written in C but has been designed from the ground up to support a wide range of languages, not only C/C++. Using GTK from languages such as Python and JavaScript (especially in combination with the Glade GUI builder) provides an effective method of application development.
 
-GTK+ is free/libre software and part of the GNU Project. The licensing terms for GTK+, the GNU LGPL, allow it to be used by all developers without any license fees or royalties.
+GTK is free/libre software and part of the GNU Project. The licensing terms for GTK, the GNU LGPL, allow it to be used by all developers without any license fees or royalties.
 
-GTK+ has been created in 1996 for the GIMP --- the GNU Image Manipulation Program --- but quickly evolved into a general-purpose library used by a large number of applications including the GNU project's GNOME desktop.
+GTK has been created in 1996 for the GIMP --- the GNU Image Manipulation Program --- but quickly evolved into a general-purpose library used by a large number of applications including the GNU project's GNOME desktop.
 
 \begin{center}
   \includegraphics[width=3cm]{images/gtk-logo.pdf}
@@ -42,19 +42,19 @@ GTK+ has been created in 1996 for the GIMP --- the GNU Image Manipulation Progra
 
 \section{Architecture Overview}
 
-Over time GTK+ has been built up to be based on other libraries, also developed by the GTK+ team:
+Over time GTK has been built up to be based on other libraries, also developed by the GTK team:
 \begin{itemize}
-  \item \textbf{GLib}, a low-level core library that forms the basis of GTK+. It provides data structure handling for C, portability wrappers and interfaces for such run-time functionality as an event loop, threads, dynamic loading, an object system (GObject) and high-level input/output APIs (GIO).
+  \item \textbf{GLib}, a low-level core library that forms the basis of GTK. It provides data structure handling for C, portability wrappers and interfaces for such run-time functionality as an event loop, threads, dynamic loading, an object system (GObject) and high-level input/output APIs (GIO).
 
-  \item \textbf{Pango}, a library for layout and rendering of text with an emphasis on internationalization. It forms the core of text and font handling for GTK+.
+  \item \textbf{Pango}, a library for layout and rendering of text with an emphasis on internationalization. It forms the core of text and font handling for GTK.
 
   \item \textbf{ATK}, a library for a set of interfaces providing accessibility. By supporting the ATK interfaces, an application or toolkit can be used with tools such as screen readers, magnifiers, and alternative input devices.
 
-  \item \textbf{GDK} is the abstraction layer that allows GTK+ to support multiple windowing systems. GDK provides backends for X11, Windows, Mac~OS~X, Wayland, Mir, and a web browser.
+  \item \textbf{GDK} is the abstraction layer that allows GTK to support multiple windowing systems. GDK provides backends for X11, Windows, Mac~OS~X, Wayland, Mir, and a web browser.
 \end{itemize}
 
 \medskip
-Another library used heavily by GTK+, but which is external to the GTK+ project, is \textbf{Cairo}, a library for 2D graphics with support for multiple output devices (including the X Window System, Win32 and Quartz) while producing a consistent output on all media while taking advantage of display hardware acceleration when available.
+Another library used heavily by GTK, but which is external to the GTK project, is \textbf{Cairo}, a library for 2D graphics with support for multiple output devices (including the X Window System, Win32 and Quartz) while producing a consistent output on all media while taking advantage of display hardware acceleration when available.
 
 \vspace{0.8cm}
 \includegraphics[width=\textwidth]{images/architecture.pdf}
@@ -111,21 +111,21 @@ The abstract file system model of GIO consists of a number of interfaces and bas
 By using the same GIO API, an application can support remote files in addition to local files. The local case is implemented by GIO, while implementations for various network file systems are provided by the GVFS package as loadable modules. Another design choice is to move backends out-of-process, which minimizes the dependency bloat and makes the whole system more robust. The backends are not included in GIO, but in the separate GVFS package. GVFS also contains a daemon which spawn further mount daemons for each individual connection.
 
 \pagebreak
-\section{The GTK+ Widget Toolkit}
+\section{The GTK Widget Toolkit}
 
-On top of GLib/GObject/GIO sits GTK+, a library containing a wide range of \textit{widgets}. A widget is a basic component of a graphical user interface, for instance a button, some text, a menu, etc. A \textit{container} is a special widget that can contain other widgets. All these widgets are (indirect) subclasses of the \texttt{GObject} base class.
+On top of GLib/GObject/GIO sits GTK, a library containing a wide range of \textit{widgets}. A widget is a basic component of a graphical user interface, for instance a button, some text, a menu, etc. A \textit{container} is a special widget that can contain other widgets. All these widgets are (indirect) subclasses of the \texttt{GObject} base class.
 
-Although widgets can be created, configured and assembled programmatically, the Glade interface builder can be used to create the user interface graphically. The Glade application creates an XML file that can be loaded with GTK+.
+Although widgets can be created, configured and assembled programmatically, the Glade interface builder can be used to create the user interface graphically. The Glade application creates an XML file that can be loaded with GTK.
 
-Among other things, GTK+ provides a flexible theming system with a CSS-like language, as well as an interactive inspector.
+Among other things, GTK provides a flexible theming system with a CSS-like language, as well as an interactive inspector.
 
-\section{Long-Term Support GTK+ Versions}
+\section{Long-Term Support GTK Versions}
 
-During the GTK+~3 development, a new minor version was released every six months. GTK+~3.22 --~released in September 2016~-- is and will be the last minor version of the 3.x series. Moving forward, the GTK+ project has adopted a new versioning scheme with a new Long-Term Support (LTS) version released every two to three years. GTK+~3.22 is an LTS version, the next LTS version will be GTK+~4.0, then 5.0, etc. Intermediary versions will continue to be released every six months; for GTK+~4, those intermediary versions are numbered 3.90, 3.92, 3.94 and so on. Those non-LTS versions have less stability guarantees. Developers preferring a stable foundation should choose an LTS version of GTK+. An LTS version is supported at least three years.
+During the GTK~3 development, a new minor version was released every six months. GTK~3.22 --~released in September 2016~-- is and will be the last minor version of the 3.x series. Moving forward, the GTK project has adopted a new versioning scheme with a new Long-Term Support (LTS) version released every two to three years. GTK~3.22 is an LTS version, the next LTS version will be GTK~4.0, then 5.0, etc. Intermediary versions will continue to be released every six months; for GTK~4, those intermediary versions are numbered 3.90, 3.92, 3.94 and so on. Those non-LTS versions have less stability guarantees. Developers preferring a stable foundation should choose an LTS version of GTK. An LTS version is supported at least three years.
 
 % \section{Release Schedule and Versioning Scheme}
 %
-% The GTK+ project usually follows the GNOME release schedule, that is, new stable versions are released every six months, around March and September. A version number has the form X.Y.Z, where ``Y'' is even for stable versions and is odd for unstable versions. A new minor stable version (e.g. 3.14.0 $\rightarrow$ 3.14.1) doesn't add new features, only translation updates, bug fixes and performance improvements. For a library, a new major version number (``X'' in X.Y.Z) generally means there has been an API break. To address this, previous major versions are parallel-installable with the latest version.
+% The GTK project usually follows the GNOME release schedule, that is, new stable versions are released every six months, around March and September. A version number has the form X.Y.Z, where ``Y'' is even for stable versions and is odd for unstable versions. A new minor stable version (e.g. 3.14.0 $\rightarrow$ 3.14.1) doesn't add new features, only translation updates, bug fixes and performance improvements. For a library, a new major version number (``X'' in X.Y.Z) generally means there has been an API break. To address this, previous major versions are parallel-installable with the latest version.
 %
 % It's of course recommended to use the latest versions for newly-written code.
 
