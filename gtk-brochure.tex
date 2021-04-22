@@ -87,7 +87,7 @@ GLib also contains loads of utilities:
 \end{itemize}
 
 \bigskip
-Last, but not least, GLib provides some core event-driven programming features, with a \textit{main event loop}, support for threads and asynchronous communication between threads. An event loop listens some sources of events, that can come from file descriptors (plain files, pipes or sockets), timeouts, or other custom sources. A priority is associated with each source of events. When an event arrives, the event loop dispatches it to the application. The event can then be taken into account, either in the same thread or another thread.
+Last, but not least, GLib provides some core event-driven programming features, with a \textit{main event loop}, support for threads and asynchronous communication between threads. An event loop listens to some sources of events, which can come from file descriptors (plain files, pipes or sockets), timeouts, or other custom sources. A priority is associated with each source of events. When an event arrives, the event loop dispatches it to the application. The event can then be taken into account, either in the same thread or another thread.
 
 \begin{center}
   \includegraphics[width=6cm]{images/event-loop.pdf}\\[0.2cm]
@@ -104,11 +104,11 @@ Alongside a GLib event loop, the GObject signal system forms a foundation for ev
 
 \section{GIO -- Input/Output on Steroids}
 
-GIO is striving to provide a modern, easy-to-use Virtual File System (VFS) API that sits at the right level in the library stack. GIO also contains other generally useful APIs for desktop applications (such as networking and D-Bus support). It was created to provide an API that is so good that developers prefer it over raw POSIX calls. Among other things that means using GObject. It also means not cloning the POSIX API, but providing higher-level, document-centric interfaces.
+GIO is striving to provide a modern, easy-to-use Virtual File System (VFS) API that sits at the right level in the library stack. GIO also contains other generally useful APIs for desktop applications (such as networking and D-Bus support). It was created to provide an API that is so good that developers will prefer it over raw POSIX calls. As well as using GObject structures, it also means not cloning the POSIX API, but providing higher-level, document-centric interfaces.
 
 The abstract file system model of GIO consists of a number of interfaces and base classes for I/O and files. Then there is a number of stream classes, similar to the input and output stream hierarchies that can be found in frameworks like Java. There is a framework for storing and retrieving application settings. There is support for network programming, including connectivity monitoring, name resolution, lowlevel socket APIs and highlevel client and server helper classes. There is support for connecting to the D-Bus inter-process communication system: sending and receiving messages, owning and watching bus names, and making objects available on the bus. Beyond these, GIO provides: file monitoring; utility classes to implement asynchronous and/or cancellable operations; an easy-to-use API to launch and interact with child processes; and more.
 
-By using the same GIO API, an application can support remote files in addition to local files. The local case is implemented by GIO, while implementations for various network file systems are provided by the GVFS package as loadable modules. Another design choice is to move backends out-of-process, which minimizes the dependency bloat and makes the whole system more robust. The backends are not included in GIO, but in the separate GVFS package. GVFS also contains a daemon which spawn further mount daemons for each individual connection.
+By using the same GIO API, an application can support remote files in addition to local files. The local case is implemented by GIO, while implementations for various network file systems are provided by the GVFS package as loadable modules. Another design choice is to move backends out-of-process, which minimizes the dependency bloat and makes the whole system more robust. The backends are not included in GIO, but in the separate GVFS package. GVFS also contains a daemon which will spawn further mount daemons for each individual connection.
 
 \pagebreak
 \section{The GTK Widget Toolkit}
